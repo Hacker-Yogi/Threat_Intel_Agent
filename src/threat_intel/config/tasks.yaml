@@ -1,0 +1,46 @@
+extract_iocs:
+  description: >
+    IOC extraction has been completed using deterministic tools.
+    The RSS data and extracted IOCs have been saved to the output directory.
+    Confirm that the extraction process completed successfully.
+  expected_output: >
+    Confirmation that IOC extraction is complete with file locations
+  agent: ioc_extractor
+
+attribute_threat_actors:
+  description: >
+    You are a threat intelligence analyst. Your mission is to map IOCs to threat actors.
+    
+    STEPS:
+    1. Use the file_reader tool to read 'rss_data.json'
+    2. Use the file_reader tool to read 'ioc_results.json'
+    3. Analyze the articles to identify threat actors (e.g., UAT-9244, Qilin, APT28)
+    4. Map the IOCs from each article to the identified threat actor
+    5. Extract TTPs, campaigns, and malware family names
+    
+    OUTPUT FORMAT (strict JSON):
+    {
+      "threat_actors": [
+        {
+          "name": "Primary Threat Actor Name",
+          "aliases": ["alias1", "alias2"],
+          "iocs": {
+            "ips": ["IP addresses"],
+            "domains": ["domains"],
+            "hashes": ["file hashes"],
+            "urls": ["malicious URLs"],
+            "cves": ["CVEs exploited"]
+          },
+          "ttps": ["TTP description 1", "TTP description 2"],
+          "campaigns": ["campaign names", "malware families"],
+          "source_articles": ["article URL 1", "article URL 2"]
+        }
+      ]
+    }
+    
+    Be thorough - extract ALL threat actors and their associated IOCs.
+  expected_output: >
+    A comprehensive JSON file mapping all threat actors to their IOCs, TTPs, and campaigns
+  agent: threat_actor_analyst
+
+  

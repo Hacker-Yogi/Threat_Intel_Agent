@@ -1,0 +1,35 @@
+[project]
+name = "threat_intel"
+version = "0.1.0"
+description = "Threat_Intel using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "apscheduler>=3.11.2",
+    "crewai[tools]==1.9.3",
+    "cryptography>=41.0.0",
+    "fastapi>=0.129.0",
+    "feedparser>=6.0.12",
+    "iocextract>=1.16.1",
+    "litellm>=1.75.3",
+    "lxml-html-clean>=0.4.3",
+    "newspaper3k>=0.2.8",
+    "pydantic[email]>=2.11.10",
+    "pyyaml>=6.0.3",
+]
+
+
+[project.scripts]
+threat_intel = "threat_intel.main:run"
+run_crew = "threat_intel.main:run"
+train = "threat_intel.main:train"
+replay = "threat_intel.main:replay"
+test = "threat_intel.main:test"
+run_with_trigger = "threat_intel.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

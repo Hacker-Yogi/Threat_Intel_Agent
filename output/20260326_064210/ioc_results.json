@@ -1,0 +1,9 @@
+{
+  "per_article": [],
+  "global_iocs": {
+    "ips_raw": [],
+    "urls_raw": [],
+    "hashes_raw": [],
+    "cves": []
+  }
+}
